@@ -63,12 +63,12 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME'),  # 'n50'
-        'USER': config('DB_USER'),  # 'hasanmavlonov'
-        'PASSWORD': config('DB_PASS'),  # 'saida0525'
-        'HOST': config('DB_HOST'),  # 'localhost'
-        'PORT': config('DB_PORT'),  # '5432'
+        'ENGINE': 'django.db.backends.mysql',  # Use mysql backend
+        'NAME': config('DB_NAME'),              # 'n50'
+        'USER': config('DB_USER'),              # 'hasanmavlonov'
+        'PASSWORD': config('DB_PASS'),          # 'saida0525'
+        'HOST': config('DB_HOST'),              # 'hasanmavlonov.mysql.pythonanywhere-services.com'
+        'PORT': '',                              # Use empty string for default MySQL port
     }
 }
 

@@ -13,7 +13,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['hasanmavlonov.pythonanywhere.com']
 
 # Application definition
 
@@ -63,15 +63,14 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Use mysql backend
-        'NAME': config('DB_NAME'),              # 'n50'
-        'USER': config('DB_USER'),              # 'hasanmavlonov'
-        'PASSWORD': config('DB_PASS'),          # 'saida0525'
-        'HOST': config('DB_HOST'),              # 'hasanmavlonov.mysql.pythonanywhere-services.com'
-        'PORT': '',                              # Use empty string for default MySQL port
+        'ENGINE': 'django.db.backends.postgresql',  # Use PostgreSQL backend
+        'NAME': config('DB_NAME'),                   # Your PostgreSQL database name
+        'USER': config('DB_USER'),                   # Your PostgreSQL username
+        'PASSWORD': config('DB_PASS'),               # Your PostgreSQL password
+        'HOST': config('DB_HOST'),                   # Your PostgreSQL host (e.g., 'localhost' or a specific IP)
+        'PORT': config('DB_PORT', default='5432'),   # Your PostgreSQL port (default is 5432)
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

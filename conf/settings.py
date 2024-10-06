@@ -63,12 +63,12 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Change this line
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASS'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT', default='3306'),  # Default MySQL port
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'n50_furniture',  # Your database name
+        'USER': 'n50_furniture_user',  # Your username
+        'PASSWORD': 'ZOQMNn4gJpooZblaZQ6ZCHI3uWYNXo7G',  # Your password
+        'HOST': '127.0.0.1',  # Use TCP instead of the socket
+        'PORT': '3306',  # Default MySQL port
     }
 }
 

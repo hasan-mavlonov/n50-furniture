@@ -1,4 +1,4 @@
-from django.contrib import admin
+
 from django.urls import path
 from furnitures.views import home_page_view
 from users.views import login_page, register_page, user_page

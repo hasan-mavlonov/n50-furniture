@@ -13,11 +13,12 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['hasanmavlonov.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -31,11 +32,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'cuser.middleware.CuserMiddleware',
 ]
 
 ROOT_URLCONF = 'conf.urls'
@@ -71,6 +74,7 @@ DATABASES = {
         'PORT': config('DB_PORT', default='5432'),   # Your PostgreSQL port (default is 5432)
     }
 }
+AUTH_USER_MODEL = 'auth.User'  # or your custom user model
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -93,8 +97,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uz'
+LANGUAGES = [
+    ('en', "English"),
+    ('uz', 'Uzbek')
+]
 
+LOCALE_PATHS = [BASE_DIR / 'locale']
 TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
